@@ -41,7 +41,22 @@ function submitHandler() {
     count: count.value,
     category: category.value.toLowerCase()
   };
-
+  
+  // Check if any input field is empty
+  if (
+    title.value.trim() === '' ||
+    price.value.trim() === '' ||
+    taxes.value.trim() === '' ||
+    ads.value.trim() === '' ||
+    discount.value.trim() === '' ||
+    count.value.trim() === '' ||
+    category.value.trim() === ''
+  ) {
+    // Display an error message or perform any desired action
+    alert('Please fill in all the fields');
+    return;
+  } 
+  
   if (mood === 'create') {
     const itemCount = dataPro.count > 1 ? dataPro.count : 1;
     for (let i = 0; i < itemCount; i++) {
